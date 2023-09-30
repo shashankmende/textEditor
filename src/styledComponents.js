@@ -1,4 +1,8 @@
-* {
+import styled, {createGlobalStyle} from 'styled-components'
+
+export const GlobalStyle = createGlobalStyle`
+
+    * {
   box-sizing: border-box;
 }
 
@@ -10,7 +14,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.bg-container {
+
+
+`
+
+export const BgContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -18,27 +26,31 @@ body {
   background-color: #25263c;
   padding: 15px;
   height: 100vh;
-}
-.middle-container {
+`
+
+export const MiddleContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 60%;
-  height: 60%;
+  width: 70%;
+  height: 70%;
   background-color: #1b1c22;
   padding: 20px;
-  border: 2px solid green;
+
   border-radius: 15px;
-}
-.static-container {
+`
+
+export const StaticContainer = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.heading {
+`
+
+export const Heading = styled.h1`
   font-family: 'Roboto';
   color: white;
-}
-.image {
-  width: 100%;
-}
+`
+
+export const Image = styled.img`
+  width: 60%;
+`

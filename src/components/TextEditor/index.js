@@ -1,9 +1,17 @@
 import {Component} from 'react'
-import './index.css'
-import {VscBold} from 'react-icons/vs'
+
+import {VscBold} from 'react-icons/vsc'
 import {GoItalic} from 'react-icons/go'
 import {AiOutlineUnderline} from 'react-icons/ai'
-import {BgContainer, IconsContainer, TextArea} from './styledComponents'
+import {
+  BgContainer,
+  IconsContainer,
+  TextArea,
+  BoldButton,
+  ItalicButton,
+  UnderLineButton,
+  ListItem,
+} from './styledComponents'
 
 class TextEditor extends Component {
   state = {isBold: false, isItalic: false, isUnderline: false}
@@ -20,7 +28,7 @@ class TextEditor extends Component {
     }))
   }
 
-  onClickItalic = () => {
+  onClickUnderLine = () => {
     this.setState(prevState => ({
       isUnderline: !prevState.isUnderline,
     }))
@@ -32,15 +40,33 @@ class TextEditor extends Component {
     return (
       <BgContainer className="bg-container">
         <IconsContainer className="icons-container">
-          <Button isBold={isBold} data-testid="bold" onClick={this.onClickBold}>
-            <VscBold size={25} />
-          </Button>
-          <Button isItalic={isItalic} data-testid="bold">
-            <GoItalic size={25} />
-          </Button>
-          <Button isUnderline={isUnderline} data-testid="bold">
-            <AiOutlineUnderline size={25} />
-          </Button>
+          <ListItem>
+            <BoldButton
+              isBold={isBold}
+              data-testid="bold"
+              onClick={this.onClickBold}
+            >
+              <VscBold size={25} />
+            </BoldButton>
+          </ListItem>
+          <ListItem>
+            <ItalicButton
+              isItalic={isItalic}
+              data-testid="italic"
+              onClick={this.onClickItalic}
+            >
+              <GoItalic size={25} />
+            </ItalicButton>
+          </ListItem>
+          <ListItem>
+            <UnderLineButton
+              isUnderline={isUnderline}
+              data-testid="underline"
+              onClick={this.onClickUnderLine}
+            >
+              <AiOutlineUnderline size={25} />
+            </UnderLineButton>
+          </ListItem>
         </IconsContainer>
         <TextArea
           isUnderline={isUnderline}
